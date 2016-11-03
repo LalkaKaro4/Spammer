@@ -191,6 +191,7 @@ namespace Spamer
         {
             metroTextBox1.Multiline = true;
 
+
             metroLabel4.Visible = false;
             metroLabel2.Visible = metroTextBox2.Visible = metroLabel3.Visible = metroTextBox3.Visible = metroCheckBox1.Visible = metroLabel1.Visible = metroRadioButton1.Visible = metroRadioButton2.Visible = true;
         }
