@@ -43,15 +43,22 @@ namespace Spamer
                     {
                         TimerPro();
 
-                        this.currentIndex = -1;
+                        if (metroCheckBox1.Checked)
+                            counter = 0;
+                        else if (metroTextBox3.Text == "")
+                            counter = 10;
+                        else
+                            counter = Convert.ToInt32(metroTextBox3.Text);
+
+                        currentIndex = -1;
                         startTile.Text = "Стоп";
                         metroTextBox1.Enabled = metroToggle1.Enabled = metroRadioButton1.Enabled = metroRadioButton2.Enabled = metroTextBox2.Enabled = metroTextBox3.Enabled =  metroCheckBox1.Enabled = metroLink1.Enabled = metroLink4.Enabled = metroLink2.Enabled = TextListView.Enabled= metroToggle1.Enabled = false;
                     }
                     else
                     {
-                        counter = 0;
-                        this.currentIndex = -1;
                         timer.Stop();
+                        counter = 0;
+                        currentIndex = -1;
                         startTile.Text = "Старт";
                         metroTextBox1.Enabled = metroToggle1.Enabled = metroRadioButton1.Enabled = metroRadioButton2.Enabled = metroTextBox2.Enabled = metroTextBox3.Enabled = metroCheckBox1.Enabled = metroLink1.Enabled = metroLink4.Enabled = metroLink2.Enabled = TextListView.Enabled = metroToggle1.Enabled = true;
                     }
@@ -68,7 +75,6 @@ namespace Spamer
                         timer = new Timer();
                         timer.Interval = 1000;
                         counter = 0;
-                        this.currentIndex = -1;
                         timer.Start();
                         timer.Tick += Timer_Tick;
 
@@ -81,15 +87,13 @@ namespace Spamer
                     {
                         timer.Stop();
                         MetroMessageBox.Show(this, "Было отправлено сообщений: " + counter, "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        counter = 0;
-                        this.currentIndex = -1;
                         startTile.Text = "Старт";
                         metroTextBox1.Enabled = true;
                         metroToggle1.Enabled = true;
                     }
                 }
             }
-            this.ActiveControl = null;
+            ActiveControl = null;
         }
 
         private void TimerPro()
@@ -100,12 +104,7 @@ namespace Spamer
                 timer.Interval = 5000;
             else
                 timer.Interval = Convert.ToInt32(metroTextBox2.Text) * 1000;
-            if (metroCheckBox1.Checked)
-                counter = 0;
-            else if (metroTextBox3.Text == "")
-                counter = 10;
-            else
-                counter = Convert.ToInt32(metroTextBox3.Text);
+            
             timer.Start();
             timer.Tick += Timer_Tick;
         }
@@ -117,7 +116,6 @@ namespace Spamer
                 /*
                 if (metroLink3.Text != "Выбрать")
                 {
-
                         Process[] targetProcess = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(metroLink3.Text));
                         MessageBox.Show(targetProcess.ToString());
                     if (targetProcess.hasExited)
@@ -127,9 +125,9 @@ namespace Spamer
                     //MessageBox.Show(Process.GetProcessesByName(metroLink3.Text)[0].MainWindowHandle.ToString());
                 }
                 */
-                
-                this.currentIndex = this.currentIndex + 1;
-                this.TextListView.Items[this.currentIndex].Selected = false;
+
+
+                currentIndex++;
                 if (metroRadioButton2.Checked)
                 {
                     SendKeys.SendWait(this.TextListView.Items[this.currentIndex].Text + "^{ENTER}");
@@ -138,10 +136,11 @@ namespace Spamer
                 {
                     SendKeys.SendWait(this.TextListView.Items[this.currentIndex].Text + "{ENTER}");
                 }
-                
-                if (this.currentIndex < this.TextListView.Items.Count)
-                {
-                    this.TextListView.Items[this.currentIndex].Selected = true;
+
+                this.TextListView.Items[this.currentIndex].Selected = true;
+
+                if (this.currentIndex < this.TextListView.Items.Count - 1)
+                {  
                     timer.Stop();
                     TimerPro();
                 }
@@ -210,13 +209,13 @@ namespace Spamer
 
         private void Standart()
         {
-            this.ClientSize = new System.Drawing.Size(380, 165);
+            ClientSize = new System.Drawing.Size(380, 165);
 
             metroTextBox1.Multiline = false;
-            this.metroTextBox1.Size = new System.Drawing.Size(334, 23);
-            this.metroTextBox1.Location = new System.Drawing.Point(23, 63);
+            metroTextBox1.Size = new System.Drawing.Size(334, 23);
+            metroTextBox1.Location = new System.Drawing.Point(23, 63);
 
-            this.startTile.Location = new System.Drawing.Point(282, 106);
+            startTile.Location = new System.Drawing.Point(282, 106);
 
             metroLabel4.Visible = true;
             metroLabel2.Visible = metroTextBox2.Visible = metroLabel3.Visible = metroTextBox3.Visible = metroCheckBox1.Visible = metroLabel1.Visible = metroRadioButton1.Visible = metroRadioButton2.Visible= TextListView.Visible= metroLink1.Visible = metroLink4.Visible = metroLink2.Visible =  false;
@@ -225,13 +224,13 @@ namespace Spamer
         
         private void Pro()
         {
-            this.ClientSize = new System.Drawing.Size(524, 412);
+            ClientSize = new System.Drawing.Size(524, 412);
 
             metroTextBox1.Multiline = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(202, 185);
-            this.metroTextBox1.Location = new System.Drawing.Point(23, 63);
+            metroTextBox1.Size = new System.Drawing.Size(202, 185);
+            metroTextBox1.Location = new System.Drawing.Point(23, 63);
 
-            this.startTile.Location = new System.Drawing.Point(417, 355);
+            startTile.Location = new System.Drawing.Point(417, 355);
 
             metroLabel4.Visible = false;
             metroLabel2.Visible = metroTextBox2.Visible = metroLabel3.Visible = metroTextBox3.Visible = metroCheckBox1.Visible = metroLabel1.Visible = metroRadioButton1.Visible = metroRadioButton2.Visible = TextListView.Visible = metroLink1.Visible = metroLink4.Visible = metroLink2.Visible = true;
