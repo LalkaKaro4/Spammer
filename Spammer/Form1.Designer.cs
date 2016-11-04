@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.startTile = new MetroFramework.Controls.MetroTile();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
@@ -41,14 +42,22 @@
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroToggle1 = new MetroFramework.Controls.MetroToggle();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.TextListView = new MetroFramework.Controls.MetroListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLink4 = new MetroFramework.Controls.MetroLink();
+            this.metroLink2 = new MetroFramework.Controls.MetroLink();
+            this.metroLink1 = new MetroFramework.Controls.MetroLink();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLink3 = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // startTile
             // 
             this.startTile.ActiveControl = null;
-            this.startTile.Location = new System.Drawing.Point(426, 366);
+            this.startTile.Location = new System.Drawing.Point(417, 355);
             this.startTile.Name = "startTile";
-            this.startTile.Size = new System.Drawing.Size(75, 40);
+            this.startTile.Size = new System.Drawing.Size(84, 40);
             this.startTile.TabIndex = 0;
             this.startTile.TabStop = false;
             this.startTile.Text = "Старт";
@@ -58,10 +67,12 @@
             // metroRadioButton1
             // 
             this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(23, 391);
+            this.metroRadioButton1.Checked = true;
+            this.metroRadioButton1.Location = new System.Drawing.Point(176, 349);
             this.metroRadioButton1.Name = "metroRadioButton1";
             this.metroRadioButton1.Size = new System.Drawing.Size(50, 15);
             this.metroRadioButton1.TabIndex = 2;
+            this.metroRadioButton1.TabStop = true;
             this.metroRadioButton1.Text = "Enter";
             this.metroRadioButton1.UseSelectable = true;
             this.metroRadioButton1.Visible = false;
@@ -69,7 +80,7 @@
             // metroRadioButton2
             // 
             this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.Location = new System.Drawing.Point(93, 391);
+            this.metroRadioButton2.Location = new System.Drawing.Point(232, 349);
             this.metroRadioButton2.Name = "metroRadioButton2";
             this.metroRadioButton2.Size = new System.Drawing.Size(77, 15);
             this.metroRadioButton2.TabIndex = 3;
@@ -80,7 +91,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 366);
+            this.metroLabel1.Location = new System.Drawing.Point(23, 345);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(147, 19);
             this.metroLabel1.TabIndex = 4;
@@ -90,7 +101,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(23, 311);
+            this.metroLabel2.Location = new System.Drawing.Point(23, 273);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(113, 19);
             this.metroLabel2.TabIndex = 5;
@@ -112,7 +123,7 @@
             this.metroTextBox2.CustomButton.UseSelectable = true;
             this.metroTextBox2.CustomButton.Visible = false;
             this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(142, 311);
+            this.metroTextBox2.Location = new System.Drawing.Point(142, 269);
             this.metroTextBox2.MaxLength = 5;
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.PasswordChar = '\0';
@@ -134,7 +145,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(232, 311);
+            this.metroLabel3.Location = new System.Drawing.Point(23, 312);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(55, 19);
             this.metroLabel3.TabIndex = 7;
@@ -156,7 +167,7 @@
             this.metroTextBox3.CustomButton.UseSelectable = true;
             this.metroTextBox3.CustomButton.Visible = false;
             this.metroTextBox3.Lines = new string[0];
-            this.metroTextBox3.Location = new System.Drawing.Point(293, 311);
+            this.metroTextBox3.Location = new System.Drawing.Point(142, 308);
             this.metroTextBox3.MaxLength = 5;
             this.metroTextBox3.Name = "metroTextBox3";
             this.metroTextBox3.PasswordChar = '\0';
@@ -178,7 +189,7 @@
             // metroCheckBox1
             // 
             this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(251, 340);
+            this.metroCheckBox1.Location = new System.Drawing.Point(223, 312);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(117, 15);
             this.metroCheckBox1.TabIndex = 9;
@@ -203,9 +214,9 @@
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(315, 1);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(18, 1);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(183, 183);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -223,7 +234,7 @@
             this.metroTextBox1.SelectionLength = 0;
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(225, 185);
+            this.metroTextBox1.Size = new System.Drawing.Size(202, 185);
             this.metroTextBox1.TabIndex = 14;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMark = "Введите ваш текст";
@@ -251,11 +262,102 @@
             this.metroLabel5.TabIndex = 16;
             this.metroLabel5.Text = "Pro";
             // 
+            // TextListView
+            // 
+            this.TextListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.TextListView.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.TextListView.FullRowSelect = true;
+            this.TextListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.TextListView.Location = new System.Drawing.Point(279, 63);
+            this.TextListView.MultiSelect = false;
+            this.TextListView.Name = "TextListView";
+            this.TextListView.OwnerDraw = true;
+            this.TextListView.Size = new System.Drawing.Size(222, 185);
+            this.TextListView.TabIndex = 78;
+            this.TextListView.UseCompatibleStateImageBehavior = false;
+            this.TextListView.UseSelectable = true;
+            this.TextListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = this.TextListView.Width;
+            // 
+            // metroLink4
+            // 
+            this.metroLink4.Image = ((System.Drawing.Image)(resources.GetObject("metroLink4.Image")));
+            this.metroLink4.ImageSize = 46;
+            this.metroLink4.Location = new System.Drawing.Point(231, 164);
+            this.metroLink4.Name = "metroLink4";
+            this.metroLink4.Size = new System.Drawing.Size(42, 39);
+            this.metroLink4.TabIndex = 88;
+            this.metroToolTip1.SetToolTip(this.metroLink4, "Открыть файл");
+            this.metroLink4.UseSelectable = true;
+            this.metroLink4.Click += new System.EventHandler(this.metroLink4_Click);
+            // 
+            // metroLink2
+            // 
+            this.metroLink2.Image = global::Spamer.Properties.Resources.Х;
+            this.metroLink2.ImageSize = 46;
+            this.metroLink2.Location = new System.Drawing.Point(231, 209);
+            this.metroLink2.Name = "metroLink2";
+            this.metroLink2.Size = new System.Drawing.Size(42, 39);
+            this.metroLink2.TabIndex = 86;
+            this.metroToolTip1.SetToolTip(this.metroLink2, "Удалить выбранное");
+            this.metroLink2.UseSelectable = true;
+            this.metroLink2.Click += new System.EventHandler(this.metroLink2_Click);
+            // 
+            // metroLink1
+            // 
+            this.metroLink1.Image = global::Spamer.Properties.Resources.right;
+            this.metroLink1.ImageSize = 46;
+            this.metroLink1.Location = new System.Drawing.Point(231, 89);
+            this.metroLink1.Name = "metroLink1";
+            this.metroLink1.Size = new System.Drawing.Size(42, 39);
+            this.metroLink1.TabIndex = 85;
+            this.metroToolTip1.SetToolTip(this.metroLink1, "Добавить в список");
+            this.metroLink1.UseSelectable = true;
+            this.metroLink1.Click += new System.EventHandler(this.metroLink1_Click);
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Default;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Default;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(23, 379);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(141, 19);
+            this.metroLabel6.TabIndex = 89;
+            this.metroLabel6.Text = "Привязка к процессу:";
+            this.metroLabel6.Visible = false;
+            // 
+            // metroLink3
+            // 
+            this.metroLink3.AutoSize = true;
+            this.metroLink3.Location = new System.Drawing.Point(161, 379);
+            this.metroLink3.Name = "metroLink3";
+            this.metroLink3.Size = new System.Drawing.Size(61, 23);
+            this.metroLink3.TabIndex = 90;
+            this.metroLink3.Text = "Выбрать";
+            this.metroLink3.UseSelectable = true;
+            this.metroLink3.Visible = false;
+            this.metroLink3.Click += new System.EventHandler(this.metroLink3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 429);
+            this.ClientSize = new System.Drawing.Size(524, 412);
+            this.Controls.Add(this.metroLink3);
+            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.metroLink4);
+            this.Controls.Add(this.metroLink2);
+            this.Controls.Add(this.metroLink1);
+            this.Controls.Add(this.TextListView);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroToggle1);
             this.Controls.Add(this.metroTextBox1);
@@ -273,6 +375,7 @@
             this.Name = "Form1";
             this.Resizable = false;
             this.Text = "Spammer 2000";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,6 +398,16 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroToggle metroToggle1;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroListView TextListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private MetroFramework.Controls.MetroLink metroLink1;
+        private MetroFramework.Controls.MetroLink metroLink2;
+        private MetroFramework.Controls.MetroLink metroLink4;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        public MetroFramework.Controls.MetroLink metroLink3;
+        public Processes form;
+        private int currentIndex;
     }
 }
 
