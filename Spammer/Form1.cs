@@ -24,6 +24,7 @@ namespace Spammer
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +32,26 @@ namespace Spammer
             RegisterHotKey(this.Handle, 1, 0, (int)Keys.F7);
             RegisterHotKey(this.Handle, 2, 0, (int)Keys.F8);
 
-            Standart();
+            metroTextBox2.Text = Properties.Settings.Default.Interval;
+            metroTextBox3.Text = Properties.Settings.Default.Amount;
+            metroCheckBox1.Checked = Properties.Settings.Default.Unlimited;
+            metroRadioButton1.Checked = Properties.Settings.Default.SendKey;
+            if (!metroRadioButton1.Checked)
+                metroRadioButton2.Checked = true;
+            metroToggle1.Checked = Properties.Settings.Default.CheckPro;
+            metroToggle1_CheckedChanged(sender, e);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Properties.Settings.Default.CheckPro = metroToggle1.Checked;
+            Properties.Settings.Default.Interval = metroTextBox2.Text;
+            Properties.Settings.Default.Amount = metroTextBox3.Text;
+            Properties.Settings.Default.Unlimited = metroCheckBox1.Checked;
+            Properties.Settings.Default.SendKey = metroRadioButton1.Checked;
+
+           // Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reset();
         }
 
         [DllImport("user32.dll")]

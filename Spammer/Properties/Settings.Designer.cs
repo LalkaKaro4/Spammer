@@ -22,5 +22,65 @@ namespace Spammer.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Interval {
+            get {
+                return ((string)(this["Interval"]));
+            }
+            set {
+                this["Interval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Amount {
+            get {
+                return ((string)(this["Amount"]));
+            }
+            set {
+                this["Amount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Unlimited {
+            get {
+                return ((bool)(this["Unlimited"]));
+            }
+            set {
+                this["Unlimited"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SendKey {
+            get {
+                return ((bool)(this["SendKey"]));
+            }
+            set {
+                this["SendKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CheckPro {
+            get {
+                return ((bool)(this["CheckPro"]));
+            }
+            set {
+                this["CheckPro"] = value;
+            }
+        }
     }
 }
