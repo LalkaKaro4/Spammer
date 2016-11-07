@@ -14,7 +14,7 @@ using System.Security.Permissions;
 using System.Runtime.InteropServices;
 
 
-namespace Spamer
+namespace Spammer
 {
 
     public partial class Processes : Form

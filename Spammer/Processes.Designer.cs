@@ -1,4 +1,4 @@
-﻿namespace Spamer
+﻿namespace Spammer
 {
     partial class Processes
     {

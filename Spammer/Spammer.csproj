@@ -7,8 +7,8 @@
     <ProjectGuid>{D050D5ED-CBAB-461E-AA20-2218B412A012}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spamer</RootNamespace>
-    <AssemblyName>Spamer</AssemblyName>
+    <RootNamespace>Spammer</RootNamespace>
+    <AssemblyName>Spammer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

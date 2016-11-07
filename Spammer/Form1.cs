@@ -17,7 +17,7 @@ using System.Reflection;
 using MetroFramework.Forms;
 using MetroFramework;
 
-namespace Spamer
+namespace Spammer
 {
     public partial class Form1 : MetroForm
     {
@@ -28,10 +28,37 @@ namespace Spamer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            RegisterHotKey(this.Handle, 1, 0, (int)Keys.F7);
+            RegisterHotKey(this.Handle, 2, 0, (int)Keys.F8);
+
             Standart();
         }
 
-        private void startTile_Click(object sender, EventArgs e)
+        [DllImport("user32.dll")]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+        [DllImport("user32.dll")]
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+
+        protected override void WndProc(ref Message m)
+        {
+            if(m.Msg == WM_HOTKEY)
+                switch ((int)m.WParam)
+                {
+                    case 1:
+                        if (startTile.Text == "Старт")
+                            Timer();
+                        break;
+                    case 2:
+                        if (startTile.Text == "Стоп")
+                            Timer();
+                        break;
+                }
+            base.WndProc(ref m);
+        }
+
+        private void Timer()
         {
             if (metroToggle1.Checked)
             {
@@ -52,7 +79,7 @@ namespace Spamer
 
                         currentIndex = -1;
                         startTile.Text = "Стоп";
-                        metroTextBox1.Enabled = metroToggle1.Enabled = metroRadioButton1.Enabled = metroRadioButton2.Enabled = metroTextBox2.Enabled = metroTextBox3.Enabled =  metroCheckBox1.Enabled = metroLink1.Enabled = metroLink4.Enabled = metroLink2.Enabled = TextListView.Enabled= metroToggle1.Enabled = false;
+                        metroTextBox1.Enabled = metroToggle1.Enabled = metroRadioButton1.Enabled = metroRadioButton2.Enabled = metroTextBox2.Enabled = metroTextBox3.Enabled = metroCheckBox1.Enabled = metroLink1.Enabled = metroLink4.Enabled = metroLink2.Enabled = TextListView.Enabled = metroToggle1.Enabled = false;
                     }
                     else
                     {
@@ -94,6 +121,11 @@ namespace Spamer
                 }
             }
             ActiveControl = null;
+        }
+
+        private void startTile_Click(object sender, EventArgs e)
+        {
+            Timer();
         }
 
         private void TimerPro()
@@ -159,7 +191,7 @@ namespace Spamer
                         if (counter == 0)
                         {
                             timer.Stop();
-                            startTile_Click(sender, e);
+                            Timer();
                         }
                     }
                 }
@@ -209,13 +241,13 @@ namespace Spamer
 
         private void Standart()
         {
-            ClientSize = new System.Drawing.Size(380, 165);
+            ClientSize = new System.Drawing.Size(380, 169);
 
             metroTextBox1.Multiline = false;
             metroTextBox1.Size = new System.Drawing.Size(334, 23);
             metroTextBox1.Location = new System.Drawing.Point(23, 63);
 
-            startTile.Location = new System.Drawing.Point(282, 106);
+            this.startTile.Location = new System.Drawing.Point(279, 106);
 
             metroLabel4.Visible = true;
             metroLabel2.Visible = metroTextBox2.Visible = metroLabel3.Visible = metroTextBox3.Visible = metroCheckBox1.Visible = metroLabel1.Visible = metroRadioButton1.Visible = metroRadioButton2.Visible= TextListView.Visible= metroLink1.Visible = metroLink4.Visible = metroLink2.Visible =  false;
@@ -326,7 +358,5 @@ namespace Spamer
             form.Tag = this;
             form.Show();
         }
-    }
-
-    
+    }  
 }

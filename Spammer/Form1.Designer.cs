@@ -1,4 +1,4 @@
-﻿namespace Spamer
+﻿namespace Spammer
 {
     partial class Form1
     {
@@ -50,12 +50,13 @@
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLink3 = new MetroFramework.Controls.MetroLink();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // startTile
             // 
             this.startTile.ActiveControl = null;
-            this.startTile.Location = new System.Drawing.Point(417, 355);
+            this.startTile.Location = new System.Drawing.Point(279, 106);
             this.startTile.Name = "startTile";
             this.startTile.Size = new System.Drawing.Size(84, 40);
             this.startTile.TabIndex = 0;
@@ -214,9 +215,9 @@
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(18, 1);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(312, 1);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(183, 183);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -225,7 +226,6 @@
             this.metroTextBox1.Lines = new string[0];
             this.metroTextBox1.Location = new System.Drawing.Point(23, 63);
             this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Multiline = true;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
             this.metroTextBox1.PromptText = "Введите ваш текст";
@@ -234,7 +234,7 @@
             this.metroTextBox1.SelectionLength = 0;
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(202, 185);
+            this.metroTextBox1.Size = new System.Drawing.Size(334, 23);
             this.metroTextBox1.TabIndex = 14;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMark = "Введите ваш текст";
@@ -297,7 +297,7 @@
             // 
             // metroLink2
             // 
-            this.metroLink2.Image = global::Spamer.Properties.Resources.Х;
+            this.metroLink2.Image = global::Spammer.Properties.Resources.Х;
             this.metroLink2.ImageSize = 46;
             this.metroLink2.Location = new System.Drawing.Point(231, 209);
             this.metroLink2.Name = "metroLink2";
@@ -309,7 +309,7 @@
             // 
             // metroLink1
             // 
-            this.metroLink1.Image = global::Spamer.Properties.Resources.right;
+            this.metroLink1.Image = global::Spammer.Properties.Resources.right;
             this.metroLink1.ImageSize = 46;
             this.metroLink1.Location = new System.Drawing.Point(231, 89);
             this.metroLink1.Name = "metroLink1";
@@ -347,20 +347,27 @@
             this.metroLink3.Visible = false;
             this.metroLink3.Click += new System.EventHandler(this.metroLink3_Click);
             // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(194, 34);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(129, 19);
+            this.metroLabel7.TabIndex = 91;
+            this.metroLabel7.Text = "F1 - Start | F2 - Stop";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 412);
+            this.ClientSize = new System.Drawing.Size(380, 169);
+            this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLink3);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroLink4);
             this.Controls.Add(this.metroLink2);
-            this.Controls.Add(this.metroLink1);
-            this.Controls.Add(this.TextListView);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroToggle1);
-            this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.metroTextBox3);
             this.Controls.Add(this.metroLabel3);
@@ -369,8 +376,11 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroRadioButton2);
             this.Controls.Add(this.metroRadioButton1);
-            this.Controls.Add(this.startTile);
             this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.startTile);
+            this.Controls.Add(this.metroLink1);
+            this.Controls.Add(this.TextListView);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Resizable = false;
@@ -379,7 +389,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+            ClientSize = new System.Drawing.Size(524, 412);
 
+            metroTextBox1.Multiline = true;
+            metroTextBox1.Size = new System.Drawing.Size(202, 185);
+            metroTextBox1.Location = new System.Drawing.Point(23, 63);
+
+            startTile.Location = new System.Drawing.Point(417, 355);
         }
 
         #endregion
@@ -408,6 +424,8 @@
         public MetroFramework.Controls.MetroLink metroLink3;
         public Processes form;
         private int currentIndex;
+        const int WM_HOTKEY = 0x0312;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }
 
